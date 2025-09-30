@@ -52,7 +52,11 @@ col1, col2, col3, col4 = st.columns(4)
 col1.metric("Total Sales (AED)", f"{d.total_amount_aed.sum():,.2f}")
 col2.metric("Transactions", f"{d.transaction_id.nunique()}")
 col3.metric("Average Basket (AED)", f"{d.total_amount_aed.mean():,.2f}")
-col4.metric("Loyalty Sales %", f"{100 * d[d.has_loyalty_card==True].total_amount_aed.sum() / (d.total_amount_aed.sum()+1e-9):.1f}%\")
+col4.metric(
+    "Loyalty Sales %", 
+    f"{100 * d[d.has_loyalty_card==True].total_amount_aed.sum() / (d.total_amount_aed.sum()+1e-9):.1f}%"
+)
+
 
 
 # Sales by Category
